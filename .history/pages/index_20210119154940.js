@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Card from '../components/SeedCard';
-import useSWR from 'swr';
+// import useSWR from 'swr';
+import useSWR from 'swr'
 import Link from 'next/link';
 export default function Home() {
     const { data: seedcards, mutate } = useSWR('/api/seedcards');
