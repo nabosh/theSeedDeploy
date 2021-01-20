@@ -6,7 +6,8 @@ module.exports = {
   purge: [
     "./pages/**/*.js", 
     "./components/**/*.js", 
-    "postcss.config.js",
+    "./static/**/*.vue",
+    "./store/**/*.vue"
   ],
   theme: {
     extend: {},

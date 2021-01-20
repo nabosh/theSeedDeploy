@@ -5,8 +5,10 @@ module.exports = {
   },
   purge: [
     "./pages/**/*.js", 
-    "./components/**/*.js", 
-    "postcss.config.js",
+    "./components/**/*.vue", 
+    "./plugins/**/*.vue",
+    "./static/**/*.vue",
+    "./store/**/*.vue"
   ],
   theme: {
     extend: {},

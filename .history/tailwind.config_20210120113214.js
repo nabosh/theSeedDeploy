@@ -4,9 +4,13 @@ module.exports = {
     // purgeLayersByDefault: true,
   },
   purge: [
-    "./pages/**/*.js", 
-    "./components/**/*.js", 
-    "postcss.config.js",
+    enabled: process.env.NODE_ENV === 'production',
+    content: [
+      'components/**/*.js',
+      'layouts/**/*.vue',
+      'pages/**/*.vue',
+      'plugins/**/*.js',
+      'nuxt.config.js'
   ],
   theme: {
     extend: {},

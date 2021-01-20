@@ -4,9 +4,11 @@ module.exports = {
     // purgeLayersByDefault: true,
   },
   purge: [
-    "./pages/**/*.js", 
-    "./components/**/*.js", 
-    "postcss.config.js",
+    "./pages/**/*.vue", 
+    "./components/**/*.vue", 
+    "./plugins/**/*.vue",
+    "./static/**/*.vue",
+    "./store/**/*.vue"
   ],
   theme: {
     extend: {},

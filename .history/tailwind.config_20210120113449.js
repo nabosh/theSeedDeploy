@@ -6,7 +6,7 @@ module.exports = {
   purge: [
     "./pages/**/*.js", 
     "./components/**/*.js", 
-    "postcss.config.js",
+    "postcss.config.js"
   ],
   theme: {
     extend: {},

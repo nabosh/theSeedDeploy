@@ -3,11 +3,7 @@ module.exports = {
     // removeDeprecatedGapUtilities: true,
     // purgeLayersByDefault: true,
   },
-  purge: [
-    "./pages/**/*.js", 
-    "./components/**/*.js", 
-    "postcss.config.js",
-  ],
+  purge: [],
   theme: {
     extend: {},
   },
