@@ -6,7 +6,7 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "export": "next export"
+        "export"
     },
     "dependencies": {
         "faunadb": "^3.0.1",
