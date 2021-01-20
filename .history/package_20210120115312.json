@@ -1,12 +1,11 @@
 {
-    "name": "seed-deploy",
+    "name": "nextjs-crash-course-fauna-swr-react-hook-form",
     "version": "0.1.0",
     "private": true,
     "scripts": {
         "dev": "next dev",
         "build": "next build",
-        "start": "next start",
-        "export": "next export"
+        "start": "next start"
     },
     "dependencies": {
         "faunadb": "^3.0.1",
@@ -18,7 +17,6 @@
     },
     "devDependencies": {
         "@fullhuman/postcss-purgecss": "^3.0.0",
-        "@netlify/plugin-nextjs": "^1.0.8",
         "postcss-preset-env": "^6.7.0",
         "tailwindcss": "^1.9.6"
     }
