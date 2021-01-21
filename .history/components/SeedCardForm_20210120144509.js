@@ -66,16 +66,6 @@ export default function SeedCardForm({ seedcard }) {
     };
     return (
         <form onSubmit={handleSubmit(seedcard ? updateSeedCard : createSeedCard)}>
-            <button
-                className="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2"
-                type="submit">
-                Save
-            </button>
-            <Link href="/">
-                <a className="mt-3 inline-block bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                    Cancel
-                </a>
-            </Link>
             <div className="mb-4">
                 <label
                     className="block text-red-100 text-sm font-bold mb-1"
@@ -551,19 +541,6 @@ export default function SeedCardForm({ seedcard }) {
                     </p>
                 )}
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <button
                 className="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2"
