@@ -7,14 +7,11 @@ import Link from 'next/link';
 
 // import netlifyAuth from './netlifyAuth.js'
 import netlifyAuth from '../netlifyAuth'
-import netlifyIdentity from 'netlify-identity-widget'
+import netlifyIdentity from 
 
 export default function Home() {
     let [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)
-
-    const user = netlifyIdentity.currentUser().id;
-    console.log({user});
-
+  
     useEffect(() => {
       let isCurrent = true
       netlifyAuth.initialize((user) => {
@@ -57,7 +54,7 @@ export default function Home() {
               <Link href="/home">
                 <a>the special, members-only space.</a>
               </Link>
-              <p>Your user is: {user}</p>
+              <p>Your user is: {login.user}</p>
               <button onClick={login}>Log in here to access the members-only area.</button>
             </div>
             
