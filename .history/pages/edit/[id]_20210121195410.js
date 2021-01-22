@@ -6,7 +6,7 @@ export default function Home({ seedcard }) {
     return (
         <div>
             <Head>
-                <title>Update Next SeedCard</title>
+                <title>Update Next SeedCard {auth.currentUser}</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 

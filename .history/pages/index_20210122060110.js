@@ -23,7 +23,7 @@ export default function Home() {
         isCurrent = false
       }
     }, [])
-
+  
     let login = () => {
       netlifyAuth.authenticate((user) => {
         setLoggedIn(!!user)
@@ -53,8 +53,7 @@ export default function Home() {
               <Link href="/home">
                 <a>the special, members-only space.</a>
               </Link>
-              <p>Your user is: {login.user}</p>
-              <button onClick={login}>Log in here to access the members-only area.</button>
+              {/* <button onClick={login}>Log in here to access the members-only area.</button> */}
             </div>
             
           ) : (
@@ -99,7 +98,6 @@ export default function Home() {
       `}</style>    
       </div>
     )
-
 }
 
   

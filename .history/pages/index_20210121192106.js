@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Footer from '../components/Footer'
+import Footer from '@components/Footer'
 import Head from 'next/head';
 import Card from '../components/SeedCard';
 import useSWR from 'swr';
@@ -23,7 +23,7 @@ export default function Home() {
         isCurrent = false
       }
     }, [])
-
+  
     let login = () => {
       netlifyAuth.authenticate((user) => {
         setLoggedIn(!!user)
@@ -53,16 +53,13 @@ export default function Home() {
               <Link href="/home">
                 <a>the special, members-only space.</a>
               </Link>
-              <p>Your user is: {login.user}</p>
-              <button onClick={login}>Log in here to access the members-only area.</button>
             </div>
-            
           ) : (
-            <button onClick={login}>Log in here to access the members-only area.</button>
+            <button className="{classes.wrapper}" onClick={login}>Log in here to access the members-only area.</button>
           )}
         </main>
 
-        <Footer />
+      <Footer />
 
        <style jsx>{`
         .container {
@@ -71,14 +68,6 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-        }
-
-        a {
-            background-color: yellow;
-        }
-
-        button {
-            background-color: blue;
         }
 
         main {
@@ -98,8 +87,7 @@ export default function Home() {
         }
       `}</style>    
       </div>
-    )
-
+      )
 }
 
   
