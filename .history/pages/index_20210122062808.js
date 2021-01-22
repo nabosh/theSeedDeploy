@@ -24,6 +24,7 @@ export default function Home() {
       }
     }, [])
 
+
     let login = () => {
       netlifyAuth.authenticate((user) => {
         setLoggedIn(!!user)

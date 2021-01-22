@@ -28,7 +28,7 @@ export async function getServerSideProps(context) {
     } catch (error) {
         console.error(error);
         context.res.statusCode = 302;
-        context.res.setHeader('Location', `/home`);
+        context.res.setHeader('Location', `/`);
         return { props: {} };
     }
 }

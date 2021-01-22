@@ -23,6 +23,8 @@ export default function Home() {
         isCurrent = false
       }
     }, [])
+  
+
 
     let login = () => {
       netlifyAuth.authenticate((user) => {
