@@ -1,12 +1,8 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import netlifyIdentity from 'netlify-identity-widget';
-import netlifyAuth from '../netlifyAuth.js'
 
-// window.netlifyIdentity = netlifyIdentity;
-// // You must run this once before trying to interact with the widget
-// netlifyIdentity.init();
+import netlifyAuth from '../netlifyAuth.js'
 
 // import Header from '@components/Header'
 // import Footer from '@components/Footer'
@@ -59,17 +55,17 @@ export default function Home() {
       </main>
 
       {/* <Footer /> */}
-      
-        {/* if (window.netlifyIdentity) {
+      <script>
+        if (window.netlifyIdentity) {
           window.netlifyIdentity.on("init", user => {
             if (!user) {
               window.netlifyIdentity.on("login", () => {
                 document.location.href = "/admin/";
               });
             }
-          })
-        } */}
-      
+          });
+        }
+      </script>
       <style jsx>{`
         .container {
           height: 100vh;

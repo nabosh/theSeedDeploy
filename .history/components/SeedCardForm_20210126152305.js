@@ -5,10 +5,10 @@ import Link from 'next/link';
 // import netlifyAuth from '../netlifyAuth'
 import netlifyIdentity from 'netlify-identity-widget'
 
+const user = netlifyIdentity.currentUser();
 // const userEmail = user.email;
 
 export default function SeedCardForm({ seedcard }) {
-    const user = netlifyIdentity.currentUser();
     // console.log(userId);
 
     const { register, handleSubmit, errors, reset } = useForm({

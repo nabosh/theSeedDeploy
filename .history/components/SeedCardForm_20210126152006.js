@@ -5,14 +5,15 @@ import Link from 'next/link';
 // import netlifyAuth from '../netlifyAuth'
 import netlifyIdentity from 'netlify-identity-widget'
 
+const user = netlifyIdentity.currentUser();
 // const userEmail = user.email;
 
 export default function SeedCardForm({ seedcard }) {
-    const user = netlifyIdentity.currentUser();
     // console.log(userId);
 
     const { register, handleSubmit, errors, reset } = useForm({
         defaultValues: {
+            userEmail: seedcard ? seedcard.data.userEmail : '',
             plantCategory: seedcard ? seedcard.data.plantCategory : '',
             nameScientific: seedcard ? seedcard.data.nameScientific : '',
             nameCommon: seedcard ? seedcard.data.nameCommon : '',
@@ -41,12 +42,12 @@ export default function SeedCardForm({ seedcard }) {
     const router = useRouter();
 
     const createSeedCard = async (data) => {
-        const { plantCategory, nameScientific, nameCommon, typeOption, height, siteLight, spacing, daysToGerminate, plantingDepth, daysToMaturity, pinch, sowInsideWeeks, sowInsideBeforeOrAfter, sowInsideRecommended, sowOutsideWeeks, sowOutsideBeforeOrAfter, sowOutsideRecommended, successiveSowing, sowEveryXStartWeeks, sowEveryXEndWeeks, notes, harvestInstructions } = data;
-        const userEmail = user.email;
+        const { userEmail, plantCategory, nameScientific, nameCommon, typeOption, height, siteLight, spacing, daysToGerminate, plantingDepth, daysToMaturity, pinch, sowInsideWeeks, sowInsideBeforeOrAfter, sowInsideRecommended, sowOutsideWeeks, sowOutsideBeforeOrAfter, sowOutsideRecommended, successiveSowing, sowEveryXStartWeeks, sowEveryXEndWeeks, notes, harvestInstructions } = data;
+        const userEmail = user.email
         try {
             await fetch('/api/createSeedCard', {
                 method: 'POST',
-                body: JSON.stringify({ plantCategory, nameScientific, nameCommon, typeOption, height, siteLight, spacing, daysToGerminate, plantingDepth, daysToMaturity, pinch, sowInsideWeeks, sowInsideBeforeOrAfter, sowInsideRecommended, sowOutsideWeeks, sowOutsideBeforeOrAfter, sowOutsideRecommended, successiveSowing, sowEveryXStartWeeks, sowEveryXEndWeeks, notes, harvestInstructions, userEmail }),
+                body: JSON.stringify({ userEmail, plantCategory, nameScientific, nameCommon, typeOption, height, siteLight, spacing, daysToGerminate, plantingDepth, daysToMaturity, pinch, sowInsideWeeks, sowInsideBeforeOrAfter, sowInsideRecommended, sowOutsideWeeks, sowOutsideBeforeOrAfter, sowOutsideRecommended, successiveSowing, sowEveryXStartWeeks, sowEveryXEndWeeks, notes, harvestInstructions }),
                 headers: {
                     'Content-Type': 'application/json',
                 },

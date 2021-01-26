@@ -1,12 +1,8 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import netlifyIdentity from 'netlify-identity-widget';
+import netlifyIdentity
 import netlifyAuth from '../netlifyAuth.js'
-
-// window.netlifyIdentity = netlifyIdentity;
-// // You must run this once before trying to interact with the widget
-// netlifyIdentity.init();
 
 // import Header from '@components/Header'
 // import Footer from '@components/Footer'
@@ -60,7 +56,7 @@ export default function Home() {
 
       {/* <Footer /> */}
       
-        {/* if (window.netlifyIdentity) {
+        if (window.netlifyIdentity) {
           window.netlifyIdentity.on("init", user => {
             if (!user) {
               window.netlifyIdentity.on("login", () => {
@@ -68,7 +64,7 @@ export default function Home() {
               });
             }
           })
-        } */}
+        }
       
       <style jsx>{`
         .container {
