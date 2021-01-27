@@ -26,7 +26,7 @@ const q = faunadb.query;
 //     return seedcards;
 // };
 
-const getSeedCards = async (userEmail) => {
+const getSeedcards = async (userEmail) => {
     Map(
         Paginate(Match(Index('filter_by_userEmail'), userEmail)),
         Lambda('ref', Get(Var('ref')))

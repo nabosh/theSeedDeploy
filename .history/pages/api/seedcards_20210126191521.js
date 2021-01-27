@@ -1,10 +1,6 @@
 import netlifyIdentity from 'netlify-identity-widget';
 import { getSeedCards } from '../../utils/Fauna';
-
 export default async function handler(req, res) {
-    const user = netlifyIdentity.currentUser();
-    const userEmail = user.email;
-    console.log({ user });
     if (req.method !== 'GET') {
         return res.status(405);
     }

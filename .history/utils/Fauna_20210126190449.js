@@ -10,27 +10,13 @@ const q = faunadb.query;
 // const userEmaill = userr.email;
 // console.log(userEmaill);
 
-// const getSeedCards = async () => {
-//     const { data } = await faunaClient.query(
-//         q.Map(
-//             q.Paginate(q.Documents(q.Collection('seedcards'))),
-//             q.Lambda('ref', q.Get(q.Var('ref')))
-//         )
-//     );
-//     const seedcards = data.map((seedcard) => {
-//         seedcard.id = seedcard.ref.id;
-//         delete seedcard.ref;
-//         return seedcard;
-//     });
-    
-//     return seedcards;
-// };
-
-const getSeedCards = async (userEmail) => {
-    Map(
-        Paginate(Match(Index('filter_by_userEmail'), userEmail)),
-        Lambda('ref', Get(Var('ref')))
-    )
+const getSeedCards = async () => {
+    const { data } = await faunaClient.query(
+        q.Map(
+            q.Paginate(q.Documents(q.Collection('seedcards'))),
+            q.Lambda('ref', q.Get(q.Var('ref')))
+        )
+    );
     const seedcards = data.map((seedcard) => {
         seedcard.id = seedcard.ref.id;
         delete seedcard.ref;
@@ -40,6 +26,20 @@ const getSeedCards = async (userEmail) => {
     return seedcards;
 };
 
+const getSeedcards = async () => {
+    Map(
+        Paginate(Match(Index("filter_by_userEmail"), userEmail)),
+        Lambda("ref', Get(Var('ref')))
+    )
+    const seedcards = data.map((seedcard) => {
+        seedcard.id = seedcard.ref.id;
+        delete seedcard.ref;
+        return seedcard;
+    });
+    
+    return seedcards;
+};
+}
 
 const getSeedCardById = async (id) => {
     const seedcard = await faunaClient.query(

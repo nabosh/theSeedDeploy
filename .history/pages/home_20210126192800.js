@@ -6,6 +6,8 @@ import Link from 'next/link';
 
 import netlifyAuth from '../netlifyAuth'
 import netlifyIdentity from 'netlify-identity-widget'
+// const userInfo = netlifyIdentity.currentUser();
+// const userEmail = userInfo.email;
 
 export default function Home() {
     let [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)

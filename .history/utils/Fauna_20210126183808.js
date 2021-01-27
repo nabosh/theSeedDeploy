@@ -26,20 +26,15 @@ const q = faunadb.query;
 //     return seedcards;
 // };
 
-const getSeedCards = async (userEmail) => {
-    Map(
-        Paginate(Match(Index('filter_by_userEmail'), userEmail)),
-        Lambda('ref', Get(Var('ref')))
-    )
-    const seedcards = data.map((seedcard) => {
-        seedcard.id = seedcard.ref.id;
-        delete seedcard.ref;
-        return seedcard;
-    });
-    
-    return seedcards;
-};
-
+const getSeedcards
+    CreateIndex({
+      name: "seedcards_sorted_by_userId",
+      source: Collection("seedcards"),
+      values: [
+        { field: ["data", "userEmail"] },
+        { field: ["ref"] }
+      ]
+    })
 
 const getSeedCardById = async (id) => {
     const seedcard = await faunaClient.query(

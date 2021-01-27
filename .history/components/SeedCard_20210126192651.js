@@ -1,4 +1,5 @@
 import React from 'react';
+// import Code from './code';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -30,10 +31,12 @@ export default function SeedCard({ seedcard, seedcardDeleted }) {
                 <h2 className="text-xl text-gray-800 font-bold">
                     {seedcard.data.plantCategory} 
                 </h2>                
+
                 <h2 className="text-xl text-gray-800 font-bold">
                     {seedcard.data.nameCommon}
                 </h2>
             </div>
+            {/* <p className="text-gray-900 mb-4">{card.data.plantCategory}</p> */}
             
             <Link href={`/edit/${seedcard.id}`}>
                 <a className="text-gray-800 mr-2">Edit {seedcard.id}</a>
