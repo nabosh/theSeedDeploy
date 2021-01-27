@@ -10,6 +10,7 @@
     },
     "dependencies": {
         "faunadb": "^3.0.1",
+        "jshint": "^2.12.0",
         "netlify-identity-widget": "^1.9.1",
         "next": "9.5.5",
         "react": "16.14.0",
