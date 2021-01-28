@@ -5,7 +5,7 @@ export default async function handler(req, res) {
         return res.status(405);
     }
     try {
-        const seedcards = await getSeedCards(userEmail);
+        const seedcards = await getSeedCards();
         return res.status(200).json(seedcards);
     } catch (err) {
         console.error(err);

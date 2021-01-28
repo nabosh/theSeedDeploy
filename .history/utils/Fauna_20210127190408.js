@@ -3,20 +3,11 @@ const faunadb = require('faunadb');
 const faunaClient = new faunadb.Client({ secret: process.env.FAUNA_SECRET });
 const q = faunadb.query;
 
-// import { useState, useEffect } from 'react'
-// import netlifyAuth from '../netlifyAuth'
-// import netlifyIdentity from 'netlify-identity-widget'
-// const userr = netlifyIdentity.currentUser();
-// const userEmaill = userr.email;
-// console.log(userEmaill);
-
-const getSeedCards = async (user) => {
-    const { data } = await faunaClient.query(
-        q.Map(
-            q.Paginate(q.Match(q.Index('filter_by_userEmail'), user)),
-            q.Lambda('ref', q.Get(q.Var('ref')))
-        )
-    );
+const getSeedCards = async (userEmail) => {
+    Map(
+        Paginate(Match(Index('filter_by_userEmail'), userEmail)),
+        Lambda('ref', Get(Var('ref')))
+    )
     const seedcards = data.map((seedcard) => {
         seedcard.id = seedcard.ref.id;
         delete seedcard.ref;
@@ -25,6 +16,7 @@ const getSeedCards = async (user) => {
     
     return seedcards;
 };
+
 
 const getSeedCardById = async (id) => {
     const seedcard = await faunaClient.query(
@@ -63,6 +55,7 @@ const deleteSeedCard = async (id) => {
 //        (seedRef) => q.Get(seedRef)
 //      )
 // }
+
 
 module.exports = {
     createSeedCard,

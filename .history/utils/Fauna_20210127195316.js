@@ -13,7 +13,7 @@ const q = faunadb.query;
 const getSeedCards = async (user) => {
     const { data } = await faunaClient.query(
         q.Map(
-            q.Paginate(q.Match(q.Index('filter_by_userEmail'), user)),
+            q.Paginate(q.Match(q.Index('filter_by_userEmail'), "nabosh@gmail.com")),
             q.Lambda('ref', q.Get(q.Var('ref')))
         )
     );
