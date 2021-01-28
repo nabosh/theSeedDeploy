@@ -3,6 +3,7 @@ const faunadb = require('faunadb');
 const faunaClient = new faunadb.Client({ secret: process.env.FAUNA_SECRET });
 const q = faunadb.query;
 
+>>>>>>> 835088586a3641d469c0b38fa3b0197f40eeab48
 const getSeedCards = async (user) => {
     const { data } = await faunaClient.query(
         q.Map(
@@ -10,6 +11,10 @@ const getSeedCards = async (user) => {
             q.Lambda('ref', q.Get(q.Var('ref')))
         )
     );
+<<<<<<< HEAD
+
+=======
+>>>>>>> 835088586a3641d469c0b38fa3b0197f40eeab48
     const seedcards = data.map((seedcard) => {
         seedcard.id = seedcard.ref.id;
         delete seedcard.ref;
