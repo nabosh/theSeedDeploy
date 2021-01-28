@@ -3,10 +3,17 @@ const faunadb = require('faunadb');
 const faunaClient = new faunadb.Client({ secret: process.env.FAUNA_SECRET });
 const q = faunadb.query;
 
-const getSeedCards = async (user) => {
+// import { useState, useEffect } from 'react'
+// import netlifyAuth from '../netlifyAuth'
+// import netlifyIdentity from 'netlify-identity-widget'
+// const userr = netlifyIdentity.currentUser();
+// const userEmaill = userr.email;
+// console.log(userEmaill);
+
+const getSeedCards = async () => {
     const { data } = await faunaClient.query(
         q.Map(
-            q.Paginate(q.Match(q.Index('filter_by_userEmail'), user)),
+            q.Paginate(q.Documents(q.Collection('seedcards'))),
             q.Lambda('ref', q.Get(q.Var('ref')))
         )
     );
@@ -15,11 +22,21 @@ const getSeedCards = async (user) => {
         delete seedcard.ref;
         return seedcard;
     });
-
+    
     return seedcards;
 };
 
+const getSeedcards = async () => {
+    CreateIndex({
+      name: "seedcards_sorted_by_userId",
+      source: Collection("seedcards"),
+      values: [
+        { field: ["data", "userEmail"] },
+        { field: ["ref"] }
+      ]
+    })
 
+    
 const getSeedCardById = async (id) => {
     const seedcard = await faunaClient.query(
         q.Get(q.Ref(q.Collection('seedcards'), id))
@@ -51,10 +68,19 @@ const deleteSeedCard = async (id) => {
     );
 };
 
+// const getAllOfUserSeeds = async (id) => { // I am not sure yet how to narrow these results by the user [20210125.11:19:00]
+//     q.Map(
+//         q.Paginate(q.Match(q.Index("all_Seeds"))),
+//        (seedRef) => q.Get(seedRef)
+//      )
+// }
+
+
 module.exports = {
     createSeedCard,
     getSeedCards,
     getSeedCardById,
     updateSeedCard,
     deleteSeedCard,
+    // getAllOfUserSeeds,
 };
