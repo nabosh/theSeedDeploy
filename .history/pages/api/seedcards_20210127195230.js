@@ -1,5 +1,4 @@
 import { getSeedCards } from '../../utils/Fauna';
-
 export default async function handler(req, res) {
   const userEmail = "nabosh@gmail.com"
     if (req.method !== 'GET') {

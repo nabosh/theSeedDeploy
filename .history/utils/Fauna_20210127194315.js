@@ -3,19 +3,17 @@ const faunadb = require('faunadb');
 const faunaClient = new faunadb.Client({ secret: process.env.FAUNA_SECRET });
 const q = faunadb.query;
 
-const getSeedCards = async (user) => {
-    const { data } = await faunaClient.query(
-        q.Map(
-            q.Paginate(q.Match(q.Index('filter_by_userEmail'), user)),
-            q.Lambda('ref', q.Get(q.Var('ref')))
-        )
+const getSeedCards = async (userEmail) => {
+    Map(
+        q.Paginate(q.Match(q.Index('filter_by_userEmail'), userEmail)),
+        q.Lambda('ref', q.Get(q.Var('ref')))
     );
     const seedcards = data.map((seedcard) => {
         seedcard.id = seedcard.ref.id;
         delete seedcard.ref;
         return seedcard;
     });
-
+    
     return seedcards;
 };
 
@@ -57,4 +55,5 @@ module.exports = {
     getSeedCardById,
     updateSeedCard,
     deleteSeedCard,
+    // getAllOfUserSeeds,
 };
