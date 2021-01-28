@@ -2,13 +2,15 @@
 import { getSeedCards } from '../../utils/Fauna';
 
 export default async function handler(req, res) {
-  const userEmail = "nabosh@gmail.com"
-
+    // const user = netlifyIdentity.currentUser();
+    const userEmail = user.email;
+    // console.log({ user });
+    // const userEmail = "nabosh@gmail.com";
     if (req.method !== 'GET') {
         return res.status(405);
     }
     try {
-        const seedcards = await getSeedCards(userEmail);
+        const seedcards = await getSeedCards(@gmail.com);
         return res.status(200).json(seedcards);
     } catch (err) {
         console.error(err);

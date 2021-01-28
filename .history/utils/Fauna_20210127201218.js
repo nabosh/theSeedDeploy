@@ -10,6 +10,7 @@ const q = faunadb.query;
 // const userEmaill = userr.email;
 // console.log(userEmaill);
 
+
 const getSeedCards = async (user) => {
     const { data } = await faunaClient.query(
         q.Map(
@@ -17,7 +18,7 @@ const getSeedCards = async (user) => {
             q.Lambda('ref', q.Get(q.Var('ref')))
         )
     );
-
+>>>>>>> wantToMakeThisMain
     const seedcards = data.map((seedcard) => {
         seedcard.id = seedcard.ref.id;
         delete seedcard.ref;

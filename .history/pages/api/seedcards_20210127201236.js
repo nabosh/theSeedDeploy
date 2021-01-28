@@ -1,4 +1,4 @@
-// import netlifyIdentity from 'netlify-identity-widget';
+import netlifyIdentity from 'netlify-identity-widget';
 import { getSeedCards } from '../../utils/Fauna';
 
 export default async function handler(req, res) {

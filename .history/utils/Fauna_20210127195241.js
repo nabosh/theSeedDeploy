@@ -13,11 +13,10 @@ const q = faunadb.query;
 const getSeedCards = async (user) => {
     const { data } = await faunaClient.query(
         q.Map(
-            q.Paginate(q.Match(q.Index('filter_by_userEmail'), user)),
+            q.Paginate(q.Documents(q.Collection('seedcards', ))),
             q.Lambda('ref', q.Get(q.Var('ref')))
         )
     );
-
     const seedcards = data.map((seedcard) => {
         seedcard.id = seedcard.ref.id;
         delete seedcard.ref;
@@ -26,7 +25,6 @@ const getSeedCards = async (user) => {
     
     return seedcards;
 };
-
 
 const getSeedCardById = async (id) => {
     const seedcard = await faunaClient.query(
@@ -65,7 +63,6 @@ const deleteSeedCard = async (id) => {
 //        (seedRef) => q.Get(seedRef)
 //      )
 // }
-
 
 module.exports = {
     createSeedCard,

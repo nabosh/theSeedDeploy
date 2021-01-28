@@ -17,7 +17,7 @@ const getSeedCards = async (user) => {
             q.Lambda('ref', q.Get(q.Var('ref')))
         )
     );
-
+>>>>>>> wantToMakeThisMain
     const seedcards = data.map((seedcard) => {
         seedcard.id = seedcard.ref.id;
         delete seedcard.ref;
