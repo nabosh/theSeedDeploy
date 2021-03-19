@@ -1,0 +1,127 @@
+.nav {
+    padding: 5px 1.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: block;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  @media screen and (min-width: 900px) {
+    .nav {
+      padding: 5px 4rem;
+    }
+  }
+  
+  .nav a {
+    text-decoration: none;
+  }
+  
+  .nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+  }
+  
+  .nav li {
+    padding-right: 30px;
+  }
+  
+  .nav svg {
+    margin-top: 7px;
+  }
+  
+  .drawer {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100vw;
+  }
+  
+  .drawer ul {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .drawer li {
+    padding: 10px 0;
+  }
+  
+  /* dark pages */
+  
+  .navdark {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-bottom: 1px solid rgba(28, 135, 177, 0.349);
+  }
+  
+  .navdark a {
+    color: white;
+  }
+  
+  .navdark .drawer {
+    background: rgba(0, 0, 0, 0.98);
+    color: white;
+    border-bottom: 1px solid rgba(28, 135, 177, 0.4);
+  }
+  
+  /* light pages */
+  .navwhite,
+  .navlight {
+    background: rgba(255, 255, 255, 0.25);
+    color: #000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  
+  .navwhite {
+    background: white;
+  }
+  
+  .navwhite a,
+  .navlight a {
+    color: #082c40;
+  }
+  
+  .navwhite .drawer,
+  .navlight .drawer {
+    background: rgba(255, 255, 255, 0.98);
+    color: #000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+  }
+  
+  .profile {
+    align-items: center;
+    display: flex;
+  }
+  
+  .profile span {
+    margin-right: 0.5rem;
+  }
+  
+  .avatar {
+    border-radius: 50%;
+    width: 40px;
+  }
+  
+  @media screen and (min-width: 440px) {
+    .explorersLogo svg {
+      margin-left: 0.8rem;
+    }
+  }
+  
+  .explorersLogo svg {
+    width: 210px;
+  }
+  
+  @media screen and (min-width: 440px) {
+    .netlifyLogoContain {
+      border-right: 0.1rem solid rgba(110, 112, 113, 0.154);
+    }
+  }
+  

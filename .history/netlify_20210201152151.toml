@@ -1,0 +1,11 @@
+[build]
+  command   = "npm run build"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+
+  [[redirects]]
+  from = "/dashboard/*"
+  to = "/dashboard"
+  status = 200
